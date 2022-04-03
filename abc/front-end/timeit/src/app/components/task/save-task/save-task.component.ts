@@ -4,12 +4,19 @@ import { TaskService } from 'src/app/services/task.service';
 import { FormBuilder, FormGroup, FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { UserService } from 'src/app/services/user.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
     const isSubmitted = form && form.submitted;
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
+}
+
+export interface User{
+  id:string;
+  userName:string;
+
 }
 
 interface Type {
@@ -47,10 +54,12 @@ export class SaveTaskComponent implements OnInit {
     
   ];
 
+  users!: User[];
 
   registerForm!: FormGroup;
 
-  constructor(private taskService:TaskService, private router:Router,private formBuilder: FormBuilder,private authService:AuthService) { }
+  constructor(private userServic:UserService,
+    private taskService:TaskService, private router:Router,private formBuilder: FormBuilder,private authService:AuthService) { }
 
   ngOnInit(): void {
     this.registerForm = this.formBuilder.group({
@@ -58,11 +67,15 @@ export class SaveTaskComponent implements OnInit {
       toDate: [''],
       type: [''],
       time:['']
+      
   });
+  this.getAllUsers()
   }
 
-  newStudent() : void{
-    this.submitted = false;
+  getAllUsers(){
+    this.userServic.getAllUsers().subscribe(data=>
+      {this.users=data as User[]})
+    
   }
 
   onClear() {

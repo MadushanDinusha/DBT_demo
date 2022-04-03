@@ -1,0 +1,69 @@
+<!-- <mat-dialog-content class="mat-typography"> -->
+    <form [formGroup]="registerForm" (ngSubmit)="saveuser()">
+        <div class="container">
+      
+          <mat-grid-list cols="2" rowHeight="500px">
+            <mat-grid-tile>
+              <div class="controles-container">
+                <!-- <div [hidden]="submitted" style="width: 400px;"> -->
+      
+                  <div class="form-group">
+                    <mat-form-field class="example-full-width">
+                      <mat-label>Full name</mat-label>
+                      <input matInput formControlName="userName" class="form-control" id="userName" required
+                        [(ngModel)]="user.username" name="userName">
+                    </mat-form-field>
+                  </div>
+      
+                  <div class="form-group">
+                    <mat-form-field class="example-full-width">
+                      <mat-label>Address</mat-label>
+                      <input matInput formControlName="password" id="password" required [(ngModel)]="user.password"
+                        name="password">
+                    </mat-form-field>
+                  </div>
+      
+                  <div class="form-group">
+                    <mat-form-field class="example-full-width">
+                      <mat-label>Phone number</mat-label>
+                      <input matInput id="firstName" type="text" formControlName="firstName" required [(ngModel)]="user.firstName" name="firstName">
+                    </mat-form-field>
+                  </div>
+      
+                  <div class="form-group">
+                    <mat-form-field class="example-full-width">
+                      <mat-label>Grade</mat-label>
+                      <input matInput id="roles" type="text" formControlName="roles" required [(ngModel)]="roles" name="role">
+                    </mat-form-field>
+                  </div>
+                </div>
+              <!-- </div> -->
+            </mat-grid-tile>
+            <mat-grid-tile>
+              <!-- <div class="controles-container-second">
+                <div class="add-bottom-margin">
+                  <mat-radio-group [(ngModel)]="student.gender" formControlName="gender" name="gender">
+                    <mat-radio-button value="Male">Male</mat-radio-button>
+                    <mat-radio-button value="Female">Female</mat-radio-button>
+                  </mat-radio-group>
+                </div>
+                <div class="add-bottom-margin">
+                  <mat-form-field>
+                    <input matInput [(ngModel)]="student.createdDate" formControlName="createdDate" [matDatepicker]="picker"
+                      name="createdDate" placeholder="Addmision Date">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                  </mat-form-field>
+      
+                </div> -->
+      
+                <div class="button-row">
+                  <button mat-raised-button [disabled]="" color="primary" type="submit">Submit</button>
+                  <button mat-raised-button color="warn" type="reset">Clear</button>
+                </div>
+              <!-- </div> -->
+            </mat-grid-tile>
+          </mat-grid-list>
+        </div>
+      </form>
+<!-- </mat-dialog-content> -->

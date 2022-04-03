@@ -1,6 +1,7 @@
 package com.timeit.Skand1s.controller;
 
 import com.timeit.Skand1s.config.AuthenticationBean;
+import com.timeit.Skand1s.domain.Role;
 import com.timeit.Skand1s.domain.Task;
 import com.timeit.Skand1s.domain.User;
 import com.timeit.Skand1s.service.SortByDate;
@@ -9,9 +10,11 @@ import com.timeit.Skand1s.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 
+import java.nio.file.Path;
 import java.sql.Time;
 import java.sql.Timestamp;
 import java.text.DateFormat;
@@ -36,6 +39,35 @@ public class UserController {
         return new AuthenticationBean("You are authenticated");
     }
 
+    @GetMapping("/getUsers")
+    public ResponseEntity<List<User>> getAllUsers(){
+        try {
+
+            return new ResponseEntity<>(userService.getAll(),HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PostMapping("/user/save/{role}")
+    public ResponseEntity<?> saveUser(@RequestBody User user, @PathVariable("role") String roles){
+        try{
+           BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+           user.setPassword(encoder.encode(user.getPassword()));
+            System.out.println(roles);
+            System.out.println(user);
+            Set<Role> role = new HashSet<>();
+            for (Role role1:role){
+                role1.setName(roles);
+            }
+            user.setRoles(role);
+            userService.saveUser(user);
+
+            return new ResponseEntity<>(HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
     @GetMapping("/getRoles/{name}")
     public ResponseEntity<User> getRoles(@PathVariable("name") String name){
         try {
@@ -74,7 +106,7 @@ public class UserController {
         }
     }
 
-    @PostMapping(path = "task/save/{name}")
+    @PostMapping("/task/save/{name}")
     public ResponseEntity<?> saveTask(@RequestBody Task task, @PathVariable("name") String name){
         try {
             SimpleDateFormat gmtDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");

@@ -10,5 +10,6 @@ import java.util.Set;
 public interface UserService {
     User getUserRole(String name);
     Long getUserId(String name);
-
+    List<User> getAll();
+    User saveUser(User user);
 }

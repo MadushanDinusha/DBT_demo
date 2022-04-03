@@ -5,7 +5,7 @@
 <div class="form-group">
   <mat-form-field class="example-full-width">
     <mat-label>From</mat-label>
-    <input matInput id="fromDate" type="datetime-local" formControlName="fromDate" name="fromDate" [(ngModel)]="task.fromDate">
+    <input matInput id="fromDate" type="datetime-local"  formControlName="fromDate" name="fromDate" [(ngModel)]="task.fromDate">
   </mat-form-field>
   <mat-form-field class="example-full-width">
     <mat-label>To</mat-label>
@@ -16,6 +16,14 @@
     <mat-select [(ngModel)]="task.type" formControlName="type" name="food" id="type" name="type">
       <mat-option *ngFor="let food of foods" [value]="food.value">
         {{food.viewValue}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <mat-label>Favorite food</mat-label>
+    <mat-select [(ngModel)]="task.type" formControlName="type" name="food" id="type" name="type">
+      <mat-option *ngFor="let user of users" [value]="user.userName">
+        {{user.userName}}
       </mat-option>
     </mat-select>
   </mat-form-field>

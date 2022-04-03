@@ -47,6 +47,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/v1/basicauth").permitAll()
                 .antMatchers("/api/v1/getTasks/*").permitAll()
                 .antMatchers("/api/v1/task/save/*").permitAll()
+                .antMatchers("/api/v1/getUsers").permitAll()
+                .antMatchers("/api/v1/user/save/*").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()

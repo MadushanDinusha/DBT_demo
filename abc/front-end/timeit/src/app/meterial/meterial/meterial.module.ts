@@ -14,6 +14,7 @@ import { NgxMatTimepickerModule } from '@angular-material-components/datetime-pi
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSelectModule} from '@angular/material/select';
 import {MatSidenavModule} from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [],
@@ -33,7 +34,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     NgxMatTimepickerModule,
     MatDialogModule,
     MatSelectModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatListModule
     
   ],
   exports: [MatTableModule,
@@ -51,6 +53,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
     NgxMatTimepickerModule,
     MatDialogModule,
     MatSelectModule,
-    MatSidenavModule ]
+    MatSidenavModule,
+    MatListModule ]
 })
 export class MeterialModule { }
