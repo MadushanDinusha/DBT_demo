@@ -1,0 +1,21 @@
+<app-toolbar></app-toolbar>
+<button mat-button (click)="openCreateTask()">Open dialog</button>
+<mat-grid-list cols="2" rowHeight="2:1">
+    <mat-grid-tile>
+        <mat-card class="example-card">
+            <mat-card-title>Your Next Task Today</mat-card-title>
+            <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+            <mat-card-content>
+              <!-- <p>This card indeterminates progress bar.</p> -->
+              <p *ngIf="isTodayTask1">{{task1StartTime | date: 'hh:mm a'}}  to {{task1EndTime | date: 'hh:mm a'}} &nbsp; {{ task1Type }}</p>
+              <p *ngIf="isTodayTask2">{{task2StartTime | date: 'hh:mm a' }}  to {{task2EndTime | date: 'hh:mm a'}} &nbsp; {{ task2Type}}</p>
+            </mat-card-content>
+          
+          </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile>2</mat-grid-tile>
+    <mat-grid-tile>3</mat-grid-tile>
+    <mat-grid-tile>4</mat-grid-tile>
+  </mat-grid-list>
+  <!-- <app-save-task></app-save-task> -->
+<!-- <app-task></app-task> -->

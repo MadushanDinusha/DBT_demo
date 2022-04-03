@@ -1,0 +1,9 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>TIMEIT</span>
+    <span class="example-spacer"></span>
+    <a href="/logout" *ngIf="isLoggedIn" class="btn btn-secondary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true" (click)=handleLogout()>Logout</a>
+    
+  </mat-toolbar>
