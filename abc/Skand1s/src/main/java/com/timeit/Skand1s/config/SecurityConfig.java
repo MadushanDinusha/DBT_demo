@@ -1,19 +1,22 @@
 package com.timeit.Skand1s.config;
 
 import com.timeit.Skand1s.service.UserDetailsServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.*;
-import org.springframework.http.HttpMethod;
-import org.springframework.security.authentication.dao.*;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.*;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.*;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
+
+import javax.sql.DataSource;
 
 @Configuration
 @EnableWebSecurity
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public UserDetailsService userDetailsService() {
         return new UserDetailsServiceImpl();
@@ -44,11 +47,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 disable()
                 .authorizeRequests()
                 .antMatchers("/").permitAll()
-                .antMatchers("/api/v1/basicauth").permitAll()
-                .antMatchers("/api/v1/getTasks/*").permitAll()
-                .antMatchers("/api/v1/task/save/*").permitAll()
-                .antMatchers("/api/v1/getUsers").permitAll()
-                .antMatchers("/api/v1/user/save/*").permitAll()
+                .antMatchers("/api/v1/**").permitAll()
+                .antMatchers("/api/v1/getAllTasks").permitAll()
                 .anyRequest()
                 .authenticated()
                 .and()

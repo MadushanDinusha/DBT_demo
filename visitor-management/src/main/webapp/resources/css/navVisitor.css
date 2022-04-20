@@ -1,0 +1,28 @@
+nav.navbar-expand-lg {
+    background-color: gray;
+    color: white;
+    width: 100%;
+}
+
+.dropdown-menu {
+    background-color: gray;
+
+}
+
+a:hover {
+    color: black;
+}
+
+.dropdown-menu {
+    border: none;
+}
+
+a.dropdown-item:active {
+    background-color: white;
+}
+
+li, a {
+
+    text-decoration: none;
+    color: white;
+}

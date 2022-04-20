@@ -6,7 +6,7 @@ public class passwordGen {
 
     public static void main(String[] args) {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        String rawPass = "abcd";
+        String rawPass = "JithminI@1";
         String encoded = encoder.encode(rawPass);
         System.out.println(encoded);
 

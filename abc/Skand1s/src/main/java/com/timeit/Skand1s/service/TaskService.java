@@ -9,4 +9,5 @@ public interface TaskService {
 
     void saveTask(Task task);
     List<Task> getUserTasks(String name);
+    List<Task> getAllTasksByUser(String name);
 }

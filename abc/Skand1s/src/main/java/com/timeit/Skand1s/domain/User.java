@@ -11,12 +11,13 @@ public class User {
     @Id
     @Column(name = "user_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long user_id;
 
     private String username;
     private String password;
     private boolean enabled;
-    private String firstName;
+    private String fullName;
+    private String email;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
@@ -30,20 +31,28 @@ public class User {
             cascade = CascadeType.ALL)
     private Set<Task> tasks;
 
-    public String getFirstName() {
-        return firstName;
+    public String getEmail() {
+        return email;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public Long getId() {
-        return id;
+        return user_id;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.user_id = id;
     }
 
     public String getUsername() {
@@ -89,11 +98,14 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
+                "id=" + user_id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", enabled=" + enabled +
+                ", fullName='" + fullName + '\'' +
+                ", email='" + email + '\'' +
                 ", roles=" + roles +
+                ", tasks=" + tasks +
                 '}';
     }
 }

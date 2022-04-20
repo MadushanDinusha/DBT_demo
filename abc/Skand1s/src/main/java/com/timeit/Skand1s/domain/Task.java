@@ -16,8 +16,14 @@ public class Task {
     private long id;
 
     private enum Type{
-        PHONE,
-        MEETING
+        Phone,
+        Meeting,
+        BBØ,
+        HO,
+        Mails,
+        Fri,
+        Syg,
+        Andet
     }
     private Type type;
     private Timestamp fromDate;
@@ -79,7 +85,7 @@ public class Task {
                 "id=" + id +
                 ", type=" + type +
                 ", fromDate=" + fromDate +
-                ", fromTime=" + toDate +
+                ", toDate=" + toDate +
 
                 '}';
     }

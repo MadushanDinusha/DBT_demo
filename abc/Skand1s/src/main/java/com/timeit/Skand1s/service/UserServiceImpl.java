@@ -38,4 +38,11 @@ public class UserServiceImpl implements UserService{
     public User saveUser(User user) {
         return userRepository.save(user);
     }
+
+    @Override
+    public String getUserNameByFullName(String fullName) {
+        User user = userRepository.getUserByFullName(fullName);
+        System.out.println(user);
+        return user.getUsername();
+    }
 }

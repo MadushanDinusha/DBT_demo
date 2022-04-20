@@ -1,0 +1,71 @@
+a.btn-info{
+    color: white;
+}
+#visitorReg
+{
+    background-color: gainsboro;
+    
+}
+
+hr
+{
+   border-top: 1px solid black;
+    width: 100%;
+}
+label
+{
+    color: white;
+}
+#btn
+{
+    background-color:black;
+    color: white;
+    border-radius: 7px;
+    width: 40px;
+}
+.quantity
+{
+    background-color: gainsboro;
+    width: 80px;
+    height: 30px;
+    
+}
+.row
+{
+    margin: 20px;
+    padding: 10px;
+}
+ input[type="text"]
+{
+    
+    background-color: gainsboro;
+    
+}
+.btn
+{
+    margin-left: 20px;
+}
+.btn-outline-info{
+    margin-bottom: 11%;
+}
+#tb1
+{
+    color:white;
+    border: 1px solid white;
+}
+#tb1 th,td
+{
+    border-left: 1.5px solid white;
+}
+.btn-info
+{
+    width: 40px;
+    padding:7%;
+    border:none;
+    color: white;
+}
+.btn-info:hover 
+{
+    color: gainsboro;
+    background-color: black;
+}

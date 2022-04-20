@@ -1,6 +1,11 @@
 package com.timeit.Skand1s.config;
 
-public class AuthenticationBean {
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+public class AuthenticationBean implements WebMvcConfigurer {
 
     private String message;
 
@@ -16,8 +21,8 @@ public class AuthenticationBean {
         this.message = message;
     }
 
-    @Override
-    public String toString() {
-        return String.format("HelloWorldBean [message=%s]", message);
-    }
+//    @Override
+//    public String toString() {
+//        return String.format("HelloWorldBean [message=%s]", message);
+//    }
 }

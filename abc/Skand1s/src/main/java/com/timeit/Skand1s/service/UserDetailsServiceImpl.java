@@ -3,8 +3,9 @@ package com.timeit.Skand1s.service;
 import com.timeit.Skand1s.domain.User;
 import com.timeit.Skand1s.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.*;
-
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 public class UserDetailsServiceImpl implements UserDetailsService {
 
